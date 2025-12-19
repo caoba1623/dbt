@@ -7,7 +7,7 @@ WITH date_dimension as (
         , {{get_season('STARTED_AT')}}   AS STATION_OF_YEAR
 
     from
-        {{ source('demo', 'bike') }}
+        {{ ref('stg_bike') }}
     where 1=1
         and STARTED_AT <> 'started_at'
 )
